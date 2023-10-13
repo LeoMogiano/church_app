@@ -93,7 +93,7 @@ class VRelacion
 
         $formulario .= "<div class='row'>";
         $formulario .= "<div class='col-12 col-md-6'>";
-        $formulario .= "<label for='usuarioA'>Usuario A:</label>";
+        $formulario .= "<label for='usuarioA'>Usuario A</label>";
         $formulario .= "<select name='usuarioA' id='usuarioA' required>";
         foreach ($usuarios as $usuario) {
             $formulario .= "<option value='{$usuario->getId()}'>{$usuario->getNombre()} {$usuario->getApellido()}</option>";
@@ -102,7 +102,7 @@ class VRelacion
         $formulario .= "</div>";
 
         $formulario .= "<div class='col-12 col-md-6'>";
-        $formulario .= "<label for='usuarioB'>Usuario B:</label>";
+        $formulario .= "<label for='usuarioB'>Usuario B</label>";
         $formulario .= "<select name='usuarioB' id='usuarioB' required>";
         foreach ($usuarios as $usuario) {
             $formulario .= "<option value='{$usuario->getId()}'>{$usuario->getNombre()} {$usuario->getApellido()}</option>";
@@ -111,7 +111,7 @@ class VRelacion
         $formulario .= "</div>";
 
         $formulario .= "<div class='col-12 col-md-6'>";
-        $formulario .= "<label for='tipoRelacionA'>Tipo de Relación A:</label>";
+        $formulario .= "<label for='tipoRelacionA'>Tipo de Relación A</label>";
         $formulario .= "<select name='tipoRelacionA' id='tipoRelacionA' required>";
         foreach ($tiposRelaciones as $tipoRelacion) {
             $formulario .= "<option value='{$tipoRelacion->getId()}'>{$tipoRelacion->getNombre()}</option>";
@@ -120,7 +120,7 @@ class VRelacion
         $formulario .= "</div>";
 
         $formulario .= "<div class='col-12 col-md-6'>";
-        $formulario .= "<label for='tipoRelacionB'>Tipo de Relación B  :</label>";
+        $formulario .= "<label for='tipoRelacionB'>Tipo de Relación B</label>";
         $formulario .= "<select name='tipoRelacionB' id='tipoRelacionB' required>";
         foreach ($tiposRelaciones as $tipoRelacion) {
             $formulario .= "<option value='{$tipoRelacion->getId()}'>{$tipoRelacion->getNombre()}</option>";
