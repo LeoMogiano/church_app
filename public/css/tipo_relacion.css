@@ -1,0 +1,302 @@
+
+
+body {
+  font-family: "Lora", serif; /* Cambié la fuente a 'Lora' y añadí 'serif' como fuente de respaldo */
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Estilo del encabezado */
+header {
+  background-color: #fff8c9;
+  color: #bca37f;
+  text-align: center;
+  padding: 20px 0;
+  border: 1px solid #bca37f;
+}
+
+header h1 {
+  font-size: 36px;
+}
+
+/* Estilo de la barra de navegación */
+nav {
+  background-color: #bca37f;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Estilo del contenido principal */
+main {
+  max-width: 100%; /* Hace que el contenido se ajuste al ancho del dispositivo */
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff; /* Cambié el color de fondo */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+main h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+main p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Estilo del pie de página */
+footer {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #fff8c9; /* Cambié el color de fondo */
+  color: #bca37f;
+  border: 1px solid #bca37f;
+}
+
+footer p {
+  font-size: 14px;
+}
+
+/* Estilo de los enlaces */
+a:hover {
+  color: #ff6600;
+}
+
+/* Agrega este estilo a tu hoja de estilos CSS */
+/* Estilo del botón "Volver atrás" */
+.back-button {
+  background-color: #8b4513;
+  color: #fff;
+  padding: 8.8px 15px; /* Ajusta el padding según tus preferencias */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  text-decoration: none; /* Elimina el subrayado de enlace */
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 16px;
+  width: auto; /* Ajusta el ancho del botón según tus preferencias */
+}
+
+.back-button:hover {
+  background-color: #bca37f; /* Color café más oscuro al pasar el mouse */
+  color: #fff; /* Texto en blanco en estado hover */
+}
+
+/* Estilo del botón "Agregar" */
+.add-button {
+  background-color: #bca37f;
+  color: #fff;
+  padding: 10px 20px; /* Ajusta el padding según tus preferencias */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 16px;
+  width: auto; /* Ajusta el ancho del botón según tus preferencias */
+}
+
+.add-button:hover {
+  background-color: #8b4513; /* Color café en estado hover */
+  color: #fff; /* Texto en blanco en estado hover */
+}
+
+.edit-button {
+  background-color: #f8ee5e;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+  margin-right: 10px;
+  font-size: 16px;
+  width: auto;
+}
+
+.delete-button {
+  background-color: #ff9999;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+  margin-right: 10px;
+  font-size: 16px;
+  width: auto;
+}
+
+.edit-button:hover {
+  background-color: #e1c50d; /* Color amarillo más oscuro al pasar el mouse */
+  color: #fff; /* Texto en blanco en estado hover */
+}
+
+.delete-button:hover {
+  background-color: #ff6666; /* Color rojo más oscuro al pasar el mouse */
+  color: #fff; /* Texto en blanco en estado hover */
+}
+
+/* Estilo del formulario */
+/* 
+#form_tipo {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #ead7bb;
+} */
+
+#form_boton_eliminar {
+  margin-top: 0;
+}
+
+form {
+  margin-top: 20px;
+}
+
+form label {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+form input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  border: 1px solid #bca37f;
+  border-radius: 5px;
+}
+
+/* Estilo de la tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th,
+table td {
+  border: 1px solid #bca37f;
+  padding: 10px;
+  text-align: center;
+}
+
+table th {
+  background-color: #bca37f;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Estilo de confirmación */
+.confirm-box {
+  background-color: #fff;
+  border: 1px solid #bca37f;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.confirm-box button {
+  background-color: #bca37f;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+/* Estilo de los select */
+select {
+  position: relative; /* Establece posición relativa para el contenedor del select */
+  width: 100%;
+  padding: 10px 20px 10px 10px; /* Aumenta el padding en el lado derecho para dejar espacio para la flecha */
+  margin-top: 5px;
+  margin-bottom: 20px;
+  border: 1px solid #bca37f;
+  border-radius: 5px;
+  background-color: #fff; /* Fondo blanco */
+  color: #333; /* Texto negro */
+  font-size: 16px;
+  appearance: none; /* Elimina el estilo predeterminado del navegador */
+}
+
+/* Agrega la flecha hacia abajo utilizando un pseudo-elemento */
+select::after {
+  content: '\25BC'; /* Código Unicode para una flecha hacia abajo */
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Ajusta el espacio entre la flecha y el borde derecho */
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Estilo de los option */
+select option {
+  background-color: #fff;
+  color: #333;
+  font-size: 16px;
+}
+
+/* Estilo de los option en hover */
+select option:hover {
+  background-color: #bca37f; /* Color café al pasar el mouse */
+  color: #fff; /* Texto en blanco en estado hover */
+}
+
+body {
+  margin: 10px 15px; /* Margen superior e inferior de 10px, margen izquierdo y derecho de 5px */
+}
+
+/* Estilo del campo de fecha */
+form input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  border: 1px solid #bca37f;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  font-size: 16px;
+  appearance: none;
+}
+
+/* Estilo de los selectores de fecha */
+/* Puedes ajustar estos selectores para que se vean como desees */
+form input[type="date"]::-webkit-calendar-picker-indicator {
+  background-color: #bca37f; /* Cambia el color del icono del calendario */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+form input[type="date"]::-webkit-inner-spin-button,
+form input[type="date"]::-webkit-clear-button {
+  display: none; /* Oculta los botones del selector de fecha */
+}

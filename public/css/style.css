@@ -1,0 +1,84 @@
+/* Estilo del cuerpo de la página */
+body {
+  font-family: "Lora", serif; /* Cambié la fuente a 'Lora' y añadí 'serif' como fuente de respaldo */
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Estilo del encabezado */
+header {
+  background-color: #fff8c9;
+  color: #BCA37F;
+  text-align: center;
+  padding: 20px 0;
+  border: 1px solid #BCA37F;
+}
+
+header h1 {
+    font-size: 36px;
+  }
+
+/* Estilo de la barra de navegación */
+nav {
+  background-color: #BCA37F;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+
+
+/* Estilo del contenido principal */
+main {
+  max-width: 100%; /* Hace que el contenido se ajuste al ancho del dispositivo */
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff; /* Cambié el color de fondo */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+main h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+main p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Estilo del pie de página */
+footer {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #fff8c9; /* Cambié el color de fondo */
+  color: #BCA37F;
+  border: 1px solid #BCA37F;
+}
+
+footer p {
+  font-size: 14px;
+}
+
+/* Estilo de los enlaces */
+a:hover {
+  color: #ff6600;
+}
