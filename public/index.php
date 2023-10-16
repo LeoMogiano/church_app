@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && $_SERVER['REQUEST_URI'] == '/tipo_rel
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SERVER['REQUEST_URI'] == '/tipo_relacion') {
     $tipo_relacion = new CTipoRelacion();
-    var_dump($_POST);
+    
     $tipo_relacion->agregarTipoRelacionC($_POST['nombre']);
     
     return;
@@ -54,21 +54,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SERVER['REQUEST_URI'] == '/actuali
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && $_SERVER['REQUEST_URI'] == '/cargos') { // Cambiado a '/cargos'
-    $cargo = new CCargo(); // Cambiado a CCargo
+    $cargo = new CCargo(); 
     $cargo->mostrarCargosC(); // Cambiado a mostrarCargosC
     return;
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SERVER['REQUEST_URI'] == '/cargos') { // Cambiado a '/cargos'
-    $cargo = new CCargo(); // Cambiado a CCargo
-    var_dump($_POST);
+    $cargo = new CCargo(); 
+    
     $cargo->agregarCargoC($_POST['nombre'], $_POST['descripcion']); // Cambiado a agregarCargoC
     
     return;
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SERVER['REQUEST_URI'] == '/eliminar_cargo') { // Cambiado a '/eliminar_cargo'
-    $cargo = new CCargo(); // Cambiado a CCargo
+    $cargo = new CCargo(); 
     $cargo->eliminarCargoC($_POST['id']); // Cambiado a eliminarCargoC
     // Puedes realizar una redirección o mostrar un mensaje de confirmación después de la eliminación.
     return;
@@ -79,34 +79,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && preg_match('/\/editar_cargo\?id=\d+/'
     $params = $_GET;
     $id = $params['id'];
 
-    $cargo = new CCargo(); // Cambiado a CCargo
+    $cargo = new CCargo(); 
     $cargo->updateCargoC($id); // Cambiado a mostrarFormularioEdicionC
     return;
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SERVER['REQUEST_URI'] == '/actualizar_cargo') { // Cambiado a '/actualizar_cargo'
-    $cargo = new CCargo(); // Cambiado a CCargo
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SERVER['REQUEST_URI'] == '/actualizar_cargo') { 
+    $cargo = new CCargo(); 
     $cargo->editarCargoC($_POST['id'], $_POST['nombre'], $_POST['descripcion']); // Cambiado a editarCargoC
         
     return;
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && $_SERVER['REQUEST_URI'] == '/usuarios') { // Cambiado a '/cargos'
-    $cargo = new CUsuario(); // Cambiado a CCargo
-    $cargo->mostrarUsuariosC(); // Cambiado a mostrarCargosC
+    $cargo = new CUsuario(); 
+    $cargo->mostrarUsuariosC(); 
     return;
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SERVER['REQUEST_URI'] == '/usuarios') { // Cambiado a '/cargos'
-    $cargo = new CUsuario(); // Cambiado a CCargo
-    /* var_dump($_POST); */
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SERVER['REQUEST_URI'] == '/usuarios') { 
+    $cargo = new CUsuario(); 
+    
     $cargo->agregarUsuarioC($_POST['nombre'], $_POST['apellido'], $_POST['email'], $_POST['ci'], $_POST['cargo']); // Cambiado a agregarCargoC
     
     return;
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SERVER['REQUEST_URI'] == '/eliminar_usuario') { // Cambiado a '/eliminar_cargo'
-    $cargo = new CUsuario(); // Cambiado a CCargo
+    $cargo = new CUsuario(); 
     $cargo->eliminarUsuarioC($_POST['id']); // Cambiado a eliminarCargoC
     // Puedes realizar una redirección o mostrar un mensaje de confirmación después de la eliminación.
     return;
@@ -117,13 +117,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && preg_match('/\/editar_usuario\?id=\d+
     $params = $_GET;
     $id = $params['id'];
 
-    $cargo = new CUsuario(); // Cambiado a CCargo
+    $cargo = new CUsuario(); 
     $cargo->updateUsuarioC($id); // Cambiado a mostrarFormularioEdicionC
     return;
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SERVER['REQUEST_URI'] == '/actualizar_usuario') { // Cambiado a '/actualizar_cargo'
-    $cargo = new CUsuario(); // Cambiado a CCargo
+    $cargo = new CUsuario(); 
     $cargo->editarUsuarioC($_POST['id'], $_POST['nombre'], $_POST['apellido'], $_POST['email'], $_POST['ci'], $_POST['cargo']); // Cambiado a editarCargoC
         
     return;

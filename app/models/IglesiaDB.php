@@ -16,7 +16,7 @@ class IglesiaDB
     }
 
 
-    public function getConnection()
+    public function getConnection() : mysqli
     {
         $dbConfig = [
             'host' => 'localhost',
@@ -57,7 +57,7 @@ class IglesiaDB
         return $conn;
     }
 
-    public function createDatabase($conn, $databaseName)
+    public function createDatabase(mysqli $conn,string $databaseName) : void
     {
         // Verificar si la base de datos ya existe
         $checkDatabaseQuery = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '$databaseName'";
@@ -77,7 +77,7 @@ class IglesiaDB
         }
     }
 
-    public function createTables($conn)
+    public function createTables($conn) : void
     {
 
         $createTableQueryTiposRelacion = " CREATE TABLE IF NOT EXISTS " . self::TABLE_TIPO_RELACION . " (
@@ -155,7 +155,7 @@ class IglesiaDB
         return $result->num_rows > 0;
     }
  */
-    private function tableExists($conn, $tableName)
+    private function tableExists(mysqli $conn, string $tableName) : bool
     {
         $result = $conn->query("SHOW TABLES LIKE '$tableName'");
         return $result->num_rows > 0;

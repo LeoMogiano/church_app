@@ -10,7 +10,7 @@ class MCargo extends IglesiaDB
     {
     }
 
-    public function agregarCargo($nombre, $descripcion): void
+    public function agregarCargo(string $nombre, string $descripcion): void
     {
         $bd = $this->getConnection();
         try {
@@ -55,7 +55,7 @@ class MCargo extends IglesiaDB
         return $cargos;
     }
 
-    public function buscarCargo($id)
+    public function buscarCargo(int $id): Cargo
     {
         $bd = $this->getConnection();
 
@@ -81,7 +81,7 @@ class MCargo extends IglesiaDB
         return null;
     }
 
-    public function editarCargo($id, $nombre, $descripcion): void
+    public function editarCargo(int $id, string $nombre, string $descripcion): void
     {
         $bd = $this->getConnection();
 
@@ -104,7 +104,7 @@ class MCargo extends IglesiaDB
     }
 
 
-    public function eliminarCargo($id): void
+    public function eliminarCargo(int $id): void
     {
         $bd = $this->getConnection();
 

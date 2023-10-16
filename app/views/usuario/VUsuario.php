@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 class VUsuario
 {
-    private function renderizarTabla($usuarios, $cargos): string
+    private function renderizarTabla($usuarios,array $cargos): string
     {
         $rowData = '';
-
+        
         if (empty($usuarios)) {
             return "<tbody></tbody>";
         }
@@ -23,13 +23,13 @@ class VUsuario
             // Busca el nombre del cargo basado en el ID del cargo
             $nombreCargo = "";
             foreach ($cargos as $cargo) {
-                if ($cargo->getId() === $usuario->getCargoId()) {
-                    $nombreCargo = $cargo->getNombre();
+                if ($cargo->getId() == $usuario->getCargoId()) {
+                    $rowData .= "<td>{$cargo->getNombre()}</td>";
                     break;
                 }
             }
-
-            $rowData .= "<td>{$nombreCargo}</td>";
+            
+            
 
             $rowData .= "<td><a href='/editar_usuario?id={$usuario->getId()}' class='edit-button'>Editar</a></td>";
             $rowData .= "<td>";

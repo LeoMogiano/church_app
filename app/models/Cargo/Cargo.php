@@ -2,48 +2,48 @@
 
 class Cargo
 {
-    private $id;
-    private $nombre;
-    private $descripcion;
+    private int $id;
+    private string $nombre;
+    private string $descripcion;
 
-    public function __construct($id, $nombre, $descripcion)
+    public function __construct(int $id, string $nombre, string $descripcion)
     {
         $this->id = $id;
         $this->nombre = $nombre;
         $this->descripcion = $descripcion;
     }
 
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    public function getNombre()
+    public function getNombre(): string
     {
         return $this->nombre;
     }
 
-    public function setNombre($nombre)
-    {
-        $this->nombre = $nombre;
-    }
-
-    public function getDescripcion()
+    public function getDescripcion(): string
     {
         return $this->descripcion;
     }
 
-    public function setDescripcion($descripcion)
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    public function setNombre(string $nombre): void
+    {
+        $this->nombre = $nombre;
+    }
+
+    public function setDescripcion(string $descripcion): void
     {
         $this->descripcion = $descripcion;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return "Cargo{" .
             "id=" . $this->id .

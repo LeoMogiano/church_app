@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 class VCargo
 {
-    private function renderizarTabla($cargos): string
+    private function renderizarTabla(array $cargos): string
     {
         $rowData = '';
 
@@ -30,14 +30,14 @@ class VCargo
         return "<tbody>$rowData</tbody>";
     }
 
-    public function actualizar($cargos): void
+    public function actualizar(array $cargos): void
     {
         $title = 'Cargos - Usuarios';
         $tbody = $this->renderizarTabla($cargos);
         include '../app/views/cargo/index.php';
     }
 
-    private function renderizarFormularioEdicion($cargo): string
+    private function renderizarFormularioEdicion(Cargo $cargo): string
     {
         $formulario = '';
 
@@ -69,7 +69,7 @@ class VCargo
         return $formulario;
     }
 
-    public function mostrarFormularioEdicion($cargo): void
+    public function mostrarFormularioEdicion(Cargo $cargo): void
     {
         $title = 'Cargo - Editar';
         $formulario = $this->renderizarFormularioEdicion($cargo);
