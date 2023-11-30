@@ -48,6 +48,13 @@ The project is structured following the MVC pattern:
     php -S localhost:8080 -t public
     ```
 
+## Screenshots
+
+*Screen*
+
+<img loading="lazy" width="90%" src="./screenshots/s1.png" alt="Screen" />
+
+
 ## Contribution
 
 Contributions are welcome! If you'd like to contribute to this project, please fork the repository, make your changes, and submit a pull request.
