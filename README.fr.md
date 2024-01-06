@@ -54,8 +54,9 @@ Le projet est structuré en suivant le modèle MVC :
 
 *Écran*
 
-<img loading="lazy" width="90%" src="./screenshots/s1.png" alt="Écran" />
-
+<p align="center">
+  <img loading="lazy" width="90%" src="./screenshots/s1.png" alt="スクリーン" />
+</p>
 
 ## Contribution
 

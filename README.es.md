@@ -54,8 +54,9 @@ El proyecto está estructurado siguiendo el patrón MVC:
 
 *Pantalla*
 
-<img loading="lazy" width="90%" src="./screenshots/s1.png" alt="Pantalla" />
-
+<p align="center">
+  <img loading="lazy" width="90%" src="./screenshots/s1.png" alt="スクリーン" />
+</p>
 
 ## Contribución
 

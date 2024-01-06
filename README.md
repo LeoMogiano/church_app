@@ -54,8 +54,9 @@ The project is structured following the MVC pattern:
 
 *Screen*
 
-<img loading="lazy" width="90%" src="./screenshots/s1.png" alt="Screen" />
-
+<p align="center">
+  <img loading="lazy" width="90%" src="./screenshots/s1.png" alt="スクリーン" />
+</p>
 
 ## Contribution
 

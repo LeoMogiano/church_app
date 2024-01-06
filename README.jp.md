@@ -54,8 +54,9 @@
 
 *スクリーン*
 
-<img loading="lazy" width="90%" src="./screenshots/s1.png" alt="スクリーン" />
-
+<p align="center">
+  <img loading="lazy" width="90%" src="./screenshots/s1.png" alt="スクリーン" />
+</p>
 
 ## 貢献
 
