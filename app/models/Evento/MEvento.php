@@ -4,18 +4,20 @@ require_once('../app/models/IglesiaDB.php');
 require_once('../app/models/Usuario/Usuario.php');
 require_once('../app/models/Evento/Evento.php');
 
-class MEvento extends IglesiaDB
+class MEvento
 {
+    private IglesiaDB $database;
 
     public function __construct()
     {
+        $this->database = new IglesiaDB();
     }
 
     public function agregarEvento($nombre, $fecha, $descripcion, $usuario_id): void
 {
-    $bd = $this->getConnection();
+    $bd = $this->database->getConnection();
     try {
-        $query = "INSERT INTO " . self::TABLE_EVENTO . " (nombre, fecha, descripcion, usuario_id) VALUES (?, ?, ?, ?)";
+        $query = "INSERT INTO " . $this->database ::TABLE_EVENTO . " (nombre, fecha, descripcion, usuario_id) VALUES (?, ?, ?, ?)";
         $stmt = $bd->prepare($query);
         $stmt->bind_param("sssi", $nombre, $fecha, $descripcion, $usuario_id);
         if ($stmt->execute()) {
@@ -33,12 +35,12 @@ class MEvento extends IglesiaDB
 
 public function mostrarEventos(): array
 {
-    $bd = $this->getConnection();
+    $bd = $this->database->getConnection();
 
     $eventos = [];
 
     try {
-        $result = $bd->query('SELECT * FROM ' . self::TABLE_EVENTO);
+        $result = $bd->query('SELECT * FROM ' . $this->database::TABLE_EVENTO);
 
         if ($result) {
             while ($row = $result->fetch_assoc()) {
@@ -57,10 +59,10 @@ public function mostrarEventos(): array
 
 public function buscarEvento($id)
 {
-    $bd = $this->getConnection();
+    $bd = $this->database->getConnection();
 
     try {
-        $query = "SELECT * FROM " . self::TABLE_EVENTO . " WHERE id = ?";
+        $query = "SELECT * FROM " . $this->database::TABLE_EVENTO . " WHERE id = ?";
         $stmt = $bd->prepare($query);
         $stmt->bind_param("i", $id);
         $stmt->execute();
@@ -82,10 +84,10 @@ public function buscarEvento($id)
 
 public function editarEvento($id, $nombre, $fecha, $descripcion, $usuario_id): void
 {
-    $bd = $this->getConnection();
+    $bd = $this->database->getConnection();
 
     try {
-        $query = "UPDATE " . self::TABLE_EVENTO . " SET nombre = ?, fecha = ?, descripcion = ?, usuario_id = ? WHERE id = ?";
+        $query = "UPDATE " . $this->database::TABLE_EVENTO . " SET nombre = ?, fecha = ?, descripcion = ?, usuario_id = ? WHERE id = ?";
         $stmt = $bd->prepare($query);
         $stmt->bind_param("sssii", $nombre, $fecha, $descripcion, $usuario_id, $id);
 
@@ -104,10 +106,10 @@ public function editarEvento($id, $nombre, $fecha, $descripcion, $usuario_id): v
 
 public function eliminarEvento($id): void
 {
-    $bd = $this->getConnection();
+    $bd = $this->database->getConnection();
 
     try {
-        $query = "DELETE FROM " . self::TABLE_EVENTO . " WHERE id = ?";
+        $query = "DELETE FROM " . $this->database::TABLE_EVENTO . " WHERE id = ?";
         $stmt = $bd->prepare($query);
         $stmt->bind_param("i", $id);
 

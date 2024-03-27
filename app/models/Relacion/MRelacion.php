@@ -4,20 +4,21 @@ require_once('../app/models/IglesiaDB.php');
 require_once('../app/models/Relacion/Relacion.php');
 
 
-class MRelacion extends IglesiaDB
+class MRelacion
 {
+    private IglesiaDB $database;
 
     public function __construct()
     {
-
+        $this->database = new IglesiaDB();
     }
 
     // Función para agregar una nueva relación
     public function agregarRelacion($usuarioA, $usuarioB, $tipoRelacionA, $tipoRelacionB): void
     {
-        $bd = $this->getConnection();
+        $bd = $this->database->getConnection();
         try {
-            $query = "INSERT INTO " . self::TABLE_RELACION . " (usuario_a, usuario_b, tipo_relacion_a, tipo_relacion_b) VALUES (?, ?, ?, ?)";
+            $query = "INSERT INTO " . $this->database::TABLE_RELACION . " (usuario_a, usuario_b, tipo_relacion_a, tipo_relacion_b) VALUES (?, ?, ?, ?)";
             $stmt = $bd->prepare($query);
             $stmt->bind_param("iiii", $usuarioA, $usuarioB, $tipoRelacionA, $tipoRelacionB);
             if ($stmt->execute()) {
@@ -36,11 +37,11 @@ class MRelacion extends IglesiaDB
     // Función para obtener todas las relaciones
     public function mostrarRelaciones(): array
     {
-        $bd = $this->getConnection();
+        $bd = $this->database->getConnection();
         $relaciones = [];
 
         try {
-            $result = $bd->query('SELECT * FROM ' . self::TABLE_RELACION);
+            $result = $bd->query('SELECT * FROM ' . $this->database::TABLE_RELACION);
 
             if ($result) {
                 while ($row = $result->fetch_assoc()) {
@@ -60,9 +61,9 @@ class MRelacion extends IglesiaDB
     // Función para buscar una relación por su ID
     public function buscarRelacion($id)
     {
-        $bd = $this->getConnection();
+        $bd = $this->database->getConnection();
         try {
-            $query = "SELECT * FROM " . self::TABLE_RELACION . " WHERE id = ?";
+            $query = "SELECT * FROM " . $this->database::TABLE_RELACION . " WHERE id = ?";
             $stmt = $bd->prepare($query);
             $stmt->bind_param("i", $id);
             $stmt->execute();
@@ -85,9 +86,9 @@ class MRelacion extends IglesiaDB
     // Función para editar una relación
     public function editarRelacion($id, $usuarioA, $usuarioB, $tipoRelacionA, $tipoRelacionB): void
     {
-        $bd = $this->getConnection();
+        $bd = $this->database->getConnection();
         try {
-            $query = "UPDATE " . self::TABLE_RELACION . " SET usuario_a = ?, usuario_b = ?, tipo_relacion_a = ?, tipo_relacion_b = ? WHERE id = ?";
+            $query = "UPDATE " . $this->database::TABLE_RELACION . " SET usuario_a = ?, usuario_b = ?, tipo_relacion_a = ?, tipo_relacion_b = ? WHERE id = ?";
             $stmt = $bd->prepare($query);
             $stmt->bind_param("iiiii", $usuarioA, $usuarioB, $tipoRelacionA, $tipoRelacionB, $id);
 
@@ -107,9 +108,9 @@ class MRelacion extends IglesiaDB
     // Función para eliminar una relación por su ID
     public function eliminarRelacion($id): void
     {
-        $bd = $this->getConnection();
+        $bd = $this->database->getConnection();
         try {
-            $query = "DELETE FROM " . self::TABLE_RELACION . " WHERE id = ?";
+            $query = "DELETE FROM " . $this->database::TABLE_RELACION . " WHERE id = ?";
             $stmt = $bd->prepare($query);
             $stmt->bind_param("i", $id);
 

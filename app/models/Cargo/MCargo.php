@@ -3,18 +3,20 @@
 require_once('../app/models/IglesiaDB.php');
 require_once('../app/models/Cargo/Cargo.php');
 
-class MCargo extends IglesiaDB
+class MCargo 
 {
+    private IglesiaDB $database;
 
     public function __construct()
     {
+        $this->database = new IglesiaDB();
     }
 
     public function agregarCargo(string $nombre, string $descripcion): void
     {
-        $bd = $this->getConnection();
+        $bd = $this->database->getConnection();
         try {
-            $query = "INSERT INTO " . self::TABLE_CARGO . " (nombre, descripcion) VALUES (?, ?)";
+            $query = "INSERT INTO " . $this->database::TABLE_CARGO . " (nombre, descripcion) VALUES (?, ?)";
             $stmt = $bd->prepare($query);
             $stmt->bind_param("ss", $nombre, $descripcion);
             if ($stmt->execute()) {
@@ -32,12 +34,12 @@ class MCargo extends IglesiaDB
 
     public function mostrarCargos(): array
     {
-        $bd = $this->getConnection();
+        $bd = $this->database->getConnection();
 
         $cargos = [];
 
         try {
-            $result = $bd->query('SELECT * FROM ' . self::TABLE_CARGO);
+            $result = $bd->query('SELECT * FROM ' . $this->database::TABLE_CARGO);
 
             if ($result) {
                 while ($row = $result->fetch_assoc()) {
@@ -57,10 +59,10 @@ class MCargo extends IglesiaDB
 
     public function buscarCargo(int $id): Cargo
     {
-        $bd = $this->getConnection();
+        $bd = $this->database->getConnection();
 
         try {
-            $query = "SELECT * FROM " . self::TABLE_CARGO . " WHERE id = ?";
+            $query = "SELECT * FROM " . $this->database::TABLE_CARGO . " WHERE id = ?";
             $stmt = $bd->prepare($query);
             $stmt->bind_param("i", $id);
             $stmt->execute();
@@ -83,10 +85,10 @@ class MCargo extends IglesiaDB
 
     public function editarCargo(int $id, string $nombre, string $descripcion): void
     {
-        $bd = $this->getConnection();
+        $bd = $this->database->getConnection();
 
         try {
-            $query = "UPDATE " . self::TABLE_CARGO . " SET nombre = ?, descripcion = ? WHERE id = ?";
+            $query = "UPDATE " . $this->database::TABLE_CARGO . " SET nombre = ?, descripcion = ? WHERE id = ?";
             $stmt = $bd->prepare($query);
             $stmt->bind_param("ssi", $nombre, $descripcion, $id);
 
@@ -106,10 +108,10 @@ class MCargo extends IglesiaDB
 
     public function eliminarCargo(int $id): void
     {
-        $bd = $this->getConnection();
+        $bd = $this->database->getConnection();
 
         try {
-            $query = "DELETE FROM " . self::TABLE_CARGO . " WHERE id = ?";
+            $query = "DELETE FROM " . $this->database::TABLE_CARGO . " WHERE id = ?";
             $stmt = $bd->prepare($query);
             $stmt->bind_param("i", $id);
 

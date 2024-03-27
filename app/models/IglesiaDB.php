@@ -19,7 +19,7 @@ class IglesiaDB
     public function getConnection() : mysqli
     {
         $dbConfig = [
-            'host' => 'localhost',
+            'host' => 'localhost', // MacOS 127.0.0.1
             'username' => 'root',
             'password' => '',
             'database' => self::DATABASE_NOMBRE,

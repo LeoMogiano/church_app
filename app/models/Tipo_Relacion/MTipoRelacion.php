@@ -3,20 +3,22 @@
 require_once('../app/models/IglesiaDB.php');
 require_once('../app/models/Tipo_Relacion/TipoRelacion.php');
 
-class MTIpoRelacion extends IglesiaDB
+class MTIpoRelacion
 {
+    private IglesiaDB $database;
 
     public function __construct()
     {
+        $this->database = new IglesiaDB();
     }
 
     public function agregarTipo($nombre): void
     {
 
-        $bd = $this->getConnection();
+        $bd = $this->database->getConnection();
         try {
 
-            $query = "INSERT INTO " . self::TABLE_TIPO_RELACION . " (nombre) VALUES (?)";
+            $query = "INSERT INTO " . $this->database::TABLE_TIPO_RELACION . " (nombre) VALUES (?)";
             $stmt = $bd->prepare($query);
             $stmt->bind_param("s", $nombre);
             if ($stmt->execute()) {
@@ -36,12 +38,12 @@ class MTIpoRelacion extends IglesiaDB
 
     public function mostrarTipos(): array
     {
-        $bd = $this->getConnection();
+        $bd = $this->database->getConnection();
 
         $tiposRelacion = []; // Un arreglo para almacenar objetos TipoRelacion
 
         try {
-            $result = $bd->query('SELECT * FROM ' . self::TABLE_TIPO_RELACION);
+            $result = $bd->query('SELECT * FROM ' . $this->database::TABLE_TIPO_RELACION);
 
             if ($result) {
                 while ($row = $result->fetch_assoc()) {
@@ -61,10 +63,10 @@ class MTIpoRelacion extends IglesiaDB
 
     public function buscarTipo($id)
     {
-        $bd = $this->getConnection();
+        $bd = $this->database->getConnection();
 
         try {
-            $query = "SELECT * FROM " . self::TABLE_TIPO_RELACION . " WHERE id = ?";
+            $query = "SELECT * FROM " . $this->database::TABLE_TIPO_RELACION . " WHERE id = ?";
             $stmt = $bd->prepare($query);
             $stmt->bind_param("i", $id);
             $stmt->execute();
@@ -89,11 +91,11 @@ class MTIpoRelacion extends IglesiaDB
 
     public function editarTipo($id, $nombre): void
     {
-        $bd = $this->getConnection();
+        $bd = $this->database->getConnection();
 
 
         try {
-            $query = "UPDATE " . self::TABLE_TIPO_RELACION . " SET nombre = ? WHERE id = ?";
+            $query = "UPDATE " . $this->database::TABLE_TIPO_RELACION . " SET nombre = ? WHERE id = ?";
             $stmt = $bd->prepare($query);
             $stmt->bind_param("si", $nombre, $id);
 
@@ -113,11 +115,11 @@ class MTIpoRelacion extends IglesiaDB
 
     public function eliminarTipo($id): void
     {
-        $bd = $this->getConnection();
+        $bd = $this->database->getConnection();
 
 
         try {
-            $query = "DELETE FROM " . self::TABLE_TIPO_RELACION . " WHERE id = ?";
+            $query = "DELETE FROM " . $this->database::TABLE_TIPO_RELACION . " WHERE id = ?";
             $stmt = $bd->prepare($query);
             $stmt->bind_param("i", $id);
 

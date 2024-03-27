@@ -4,18 +4,20 @@ require_once('../app/models/IglesiaDB.php');
 require_once('../app/models/Ingreso/Ingreso.php');
 
 
-class MIngreso extends IglesiaDB
+class MIngreso
 {
+    private IglesiaDB $database;
 
     public function __construct()
     {
+        $this->database = new IglesiaDB();
     }
 
     public function agregarIngreso($tipoIngreso, $monto, $evento_id): void
     {
-        $bd = $this->getConnection();
+        $bd = $this->database->getConnection();
         try {
-            $query = "INSERT INTO " . self::TABLE_INGRESO . " (tipo_ingreso, monto, evento_id) VALUES (?, ?, ?)";
+            $query = "INSERT INTO " . $this->database::TABLE_INGRESO . " (tipo_ingreso, monto, evento_id) VALUES (?, ?, ?)";
             $stmt = $bd->prepare($query);
             $stmt->bind_param("sdi", $tipoIngreso, $monto, $evento_id);
             if ($stmt->execute()) {
@@ -33,12 +35,12 @@ class MIngreso extends IglesiaDB
 
     public function mostrarIngresos(): array
     {
-        $bd = $this->getConnection();
+        $bd = $this->database->getConnection();
 
         $ingresos = [];
 
         try {
-            $result = $bd->query('SELECT * FROM ' . self::TABLE_INGRESO);
+            $result = $bd->query('SELECT * FROM ' . $this->database::TABLE_INGRESO);
 
             if ($result) {
                 while ($row = $result->fetch_assoc()) {
@@ -57,10 +59,10 @@ class MIngreso extends IglesiaDB
 
     public function buscarIngreso($id)
     {
-        $bd = $this->getConnection();
+        $bd = $this->database->getConnection();
 
         try {
-            $query = "SELECT * FROM " . self::TABLE_INGRESO . " WHERE id = ?";
+            $query = "SELECT * FROM " . $this->database::TABLE_INGRESO . " WHERE id = ?";
             $stmt = $bd->prepare($query);
             $stmt->bind_param("i", $id);
             $stmt->execute();
@@ -82,10 +84,10 @@ class MIngreso extends IglesiaDB
 
     public function editarIngreso($id, $tipoIngreso, $monto, $evento_id): void
     {
-        $bd = $this->getConnection();
+        $bd = $this->database->getConnection();
 
         try {
-            $query = "UPDATE " . self::TABLE_INGRESO . " SET tipo_ingreso = ?, monto = ?, evento_id = ? WHERE id = ?";
+            $query = "UPDATE " . $this->database::TABLE_INGRESO . " SET tipo_ingreso = ?, monto = ?, evento_id = ? WHERE id = ?";
             $stmt = $bd->prepare($query);
             $stmt->bind_param("sdii", $tipoIngreso, $monto, $evento_id, $id);
 
@@ -104,10 +106,10 @@ class MIngreso extends IglesiaDB
 
     public function eliminarIngreso($id): void
     {
-        $bd = $this->getConnection();
+        $bd = $this->database->getConnection();
 
         try {
-            $query = "DELETE FROM " . self::TABLE_INGRESO . " WHERE id = ?";
+            $query = "DELETE FROM " . $this->database::TABLE_INGRESO . " WHERE id = ?";
             $stmt = $bd->prepare($query);
             $stmt->bind_param("i", $id);
 
